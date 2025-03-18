@@ -8,12 +8,12 @@ public class Main {
         RubricaTelefonica rubricaTelefonica = new RubricaTelefonica();
         Map<String, Integer> rubrica = new HashMap<>();
 
-        rubrica.put("Luca", 3333333);
+        rubrica.put("Piero", 1111111);;
         rubrica.put("Giuseppe", 4444444);
         rubrica.put("Giorgia", 5555555);
         rubrica.put("Davide", 6666666);
         rubrica.put("Giovanna", 7777777);
-        rubrica.put("Davide", 8888888);
+        rubrica.put("Alessandro", 8888888);
 
         System.out.println(rubrica);
 
@@ -46,9 +46,5 @@ public class Main {
 
         System.out.println("controllo se la rubrica è vuota");
         System.out.println(rubrica.isEmpty());
-
-
-
-
     }
 }
