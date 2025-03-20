@@ -24,8 +24,8 @@ public class istanze {
 
     public static List<Order> listaOrdini = List.of(
             new Order(1L, "In consegna", LocalDate.now(), LocalDate.now().plusDays(1), listaProdotti, new Customer(1L, "Giuseppe", 1)),
-            new Order(2L, "In consegna", LocalDate.now(), LocalDate.of(2021,2,5), listaProdotti, new Customer(5L, "Pietro", 2)),
-            new Order(3L, "In transito", LocalDate.now(), LocalDate.of(2021,4,10), listaProdotti, new Customer(4L, "Giovanni", 2)),
+            new Order(2L, "In consegna", LocalDate.of(2021,2,3), LocalDate.of(2021,2,5), listaProdotti, new Customer(5L, "Pietro", 2)),
+            new Order(3L, "In transito", LocalDate.of(2021,3,15), LocalDate.of(2021,4,10), listaProdotti, new Customer(4L, "Giovanni", 2)),
             new Order(4L, "In consegna", LocalDate.now(), LocalDate.now(), listaProdotti, new Customer(6L, "Alessandro", 3))
     );
 

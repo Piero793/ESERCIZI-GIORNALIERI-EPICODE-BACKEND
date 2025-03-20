@@ -19,7 +19,8 @@ public class Main {
 
         System.out.println("Elenco degli ordini dei prodotti di categoria baby");
         listaOrdini.stream()
-                .filter(o -> o.getProducts().stream().anyMatch(p -> p.getCategory().equals("Baby")))
+                .filter(o -> o.getProducts().stream()
+                        .anyMatch(p -> p.getCategory().equals("Baby")))
                 .toList()
                 .forEach(System.out::println);
 
