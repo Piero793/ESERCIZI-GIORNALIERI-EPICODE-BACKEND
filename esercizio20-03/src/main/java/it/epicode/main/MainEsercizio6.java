@@ -29,6 +29,8 @@ public class MainEsercizio6 {
 
         List<Product> prodotti = Istanze.productList;
         salvaProdottiSuDisco(prodotti, "prodotti.txt");
+       
+
 
         System.out.println("File salvato con successo: prodotti.txt");}
 }

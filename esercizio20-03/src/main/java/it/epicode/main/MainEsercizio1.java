@@ -15,13 +15,13 @@ public class MainEsercizio1 {
 
         String ordiniCliente = orderList.stream()
                 .collect(Collectors.groupingBy(Order::getCustomer, Collectors.toList())).toString();
-        System.out.println(ordiniCliente);
         System.out.println("-------------------------------");
          Map<Customer, List<Order>> ordiniPerCliente = orderList.stream()
                 .collect(Collectors.groupingBy(Order::getCustomer));
+         ordiniPerCliente.forEach((k, v) -> System.out.println(k + " " + v));
         System.out.println("--------------------------");
         System.out.println("Ordini per cliente");
-        System.out.println(ordiniPerCliente);
+        System.out.println(ordiniCliente);
         System.out.println("-------------------------------");
 
     }
