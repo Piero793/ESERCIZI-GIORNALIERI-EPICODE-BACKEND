@@ -25,6 +25,5 @@ public class MainEsercizio5 {
 
         //stampa la somma degli importi dei prodotti per categoria
         System.out.println("Somma degli importi dei prodotti per categoria: ");
-        System.out.println(sommaPerCategoria);
-    }
+prodottiPerCategoria.forEach((categoria, prodotti) -> System.out.println(categoria + ": " + sommaPerCategoria.get(categoria)));}
 }

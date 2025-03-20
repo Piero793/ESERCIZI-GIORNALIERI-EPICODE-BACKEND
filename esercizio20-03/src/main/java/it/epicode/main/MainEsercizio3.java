@@ -13,10 +13,12 @@ public class MainEsercizio3 {
     public static void main(String[] args) {
 
         List<Product> top3ProdottiCostosi = productList.stream()
-                .sorted(Comparator.comparingDouble(Product::getPrice).reversed())
+                .sorted(Comparator.comparingDouble(Product::getPrice)
+                .reversed())
                 .limit(3)
                 .toList();
         System.out.println("---------------------------------------");
-        System.out.println("Top 3 prodotti più costosi: " + top3ProdottiCostosi);
+        System.out.println("Top 3 prodotti più costosi:");
+        top3ProdottiCostosi.forEach(System.out::println);
     }
 }
