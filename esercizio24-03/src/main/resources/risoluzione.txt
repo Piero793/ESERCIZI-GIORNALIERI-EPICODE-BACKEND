@@ -1,0 +1,25 @@
+esercizio1
+
+select nome from clienti where nome like '%mario%';
+
+esercizio2
+
+select nome, cognome from clienti where extract (year from anno_nascita) = 1982
+
+esercizio3
+
+SELECT * FROM fatture WHERE iva = null
+
+esercizio4
+
+SELECT data_attivazione
+FROM prodotti
+WHERE EXTRACT(YEAR FROM data_attivazione) = 2017;
+
+esercizio5
+
+SELECT f.numero_fattura, f.importo, f.data_fattura,
+       c.nome, c.cognome, c.regione_residenza
+FROM fatture f
+JOIN clienti c ON f.id_cliente = c.id_cliente
+WHERE f.importo < 1000;
