@@ -26,29 +26,18 @@ public class Main {
 
         // salvo gli eventi nel db
 
-       /* eventoDao.save(evento);
+        eventoDao.save(evento);
         eventoDao.save(evento1);
         eventoDao.save(evento2);
-        eventoDao.save(evento3);*/
-
-        // elimino gli elementi per id
-
-
-/*
+        eventoDao.save(evento3);
         eventoDao.delete(2L);
-*/
-
-
-       // cerco per id
-
-
-/*
         eventoDao.find(4L);
-
-
-*/
-      Evento e = eventoDao.find(4L);
+        Evento e = eventoDao.find(4L);
         System.out.println("Evento: "+ e.getTitolo() + " " + e.getDescrizione() + " " + e.getDataEvento()+ "" + e.getNumeroMassimoPartecipanti());
+
+        em.close();
+        emf.close();
+
     }
 
 }
