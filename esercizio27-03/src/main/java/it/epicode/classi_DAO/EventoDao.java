@@ -7,6 +7,8 @@ import it.epicode.enums.Streaming;
 import jakarta.persistence.EntityManager;
 import lombok.AllArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 public class EventoDao  {
     private EntityManager em;
@@ -34,17 +36,19 @@ public class EventoDao  {
     }
 
     // metodo JPQL per fare il getConertiInString di un evento true,false
-    public void getConcertiInStreaming(Streaming inStreaming) {
-        em.createQuery("SELECT e FROM Concerto e WHERE e.inStreaming = :inStreaming", Concerto.class)
-                .setParameter("inStreaming", inStreaming)
+    public List<Concerto> getConcertiInStreaming(Streaming streaming) {
+        return em.createQuery("SELECT c FROM Concerto c WHERE c.streaming = :streaming", Concerto.class)
+                .setParameter("streaming", streaming)
                 .getResultList();
     }
+
 
 
     // metodo JPQL per fare il getConcertiPerGenere dall enum Genere
-    public void getConcertiPerGenere(Genere genere) {
-        em.createQuery("SELECT e FROM Evento e WHERE e.genere = :genere", Evento.class)
+    public List<Concerto> getConcertiPerGenere(Genere genere) {
+        return em.createQuery("SELECT c FROM Concerto c WHERE c.genere = :genere", Concerto.class)
                 .setParameter("genere", genere)
                 .getResultList();
     }
+
 }

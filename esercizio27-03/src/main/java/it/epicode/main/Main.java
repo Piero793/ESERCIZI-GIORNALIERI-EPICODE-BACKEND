@@ -14,6 +14,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+import java.util.List;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -85,15 +87,27 @@ public class Main {
 
         em.getTransaction().commit();
 
-     /*   // richiamo il metodo getConcertiInStreaming
-        System.out.println("Concerti in streaming: " + eventoDao.getConcertiInStreaming(Streaming.TRUE));
-        // richiamo il metodo getConcertiPerGenere
-        System.out.println("Concerti per genere: " + eventoDao.getConcertiPerGenere(Genere.ROCK));
+       // richiamo il metodo getConcertiInStreaming
+        List<Concerto> concertiStreaming = eventoDao.getConcertiInStreaming(Streaming.TRUE);
+        System.out.println("Concerti in streaming:");
+        for (Concerto c : concertiStreaming) {
+            System.out.println(" - " + c.getTitolo() + " (" + c.getGenere() + ")");
+        }
+
+          // richiamo il metodo getConcertiPerGenere
+        List<Concerto> concertiPerGenere = eventoDao.getConcertiPerGenere(Genere.ROCK);
+        System.out.println("Concerti per genere ROCK:");
+        for (Concerto c : concertiPerGenere) {
+            System.out.println(" - " + c.getTitolo() + " (" + c.getStreaming() + ")");
+        }
+
+        // chiusura EntityManager e EntityManagerFactory
         em.close();
-        emf.close();*/
+        emf.close();
 
 
-     }
+
+    }
 
     }
 
