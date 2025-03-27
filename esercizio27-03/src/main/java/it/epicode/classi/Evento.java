@@ -16,10 +16,7 @@ import java.time.LocalDate;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "eventi")
-//named questies per fare il getPartiteVinteInCasa
-@NamedQuery(name = "getPartiteVinteInCasa", query = "SELECT e FROM Evento e WHERE e.location.citta = :citta")
-//named questies per fare il getPartiteVinteInTrasferta
-@NamedQuery(name = "getPartiteVinteInTrasferta", query = "SELECT e FROM Evento e WHERE e.location.citta = :citta")
+// @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Evento {
 
     @Id

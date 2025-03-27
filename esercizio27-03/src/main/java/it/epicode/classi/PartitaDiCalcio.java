@@ -1,8 +1,6 @@
 package it.epicode.classi;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +12,15 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Entity
 @Table(name = "partite_di_calcio")
+        @NamedQuery(
+                name = "getPartiteVinteInCasa",
+                query = "SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = p.squadraDiCasa AND p.location.citta = :citta"
+        )
+        @NamedQuery(
+                name = "getPartiteVinteInTrasferta",
+                query = "SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = p.squadraOspite AND p.location.citta = :citta"
+        )
+
 public class PartitaDiCalcio extends Evento{
 
     @Column

@@ -101,6 +101,27 @@ public class Main {
             System.out.println(" - " + c.getTitolo() + " (" + c.getStreaming() + ")");
         }
 
+        // Richiamo getPartiteVinteInCasa
+        List<PartitaDiCalcio> vinteInCasa = em.createNamedQuery("getPartiteVinteInCasa", PartitaDiCalcio.class)
+                .setParameter("citta", "Milano")
+                .getResultList();
+
+        System.out.println("Partite vinte in casa a Milano:");
+        for (PartitaDiCalcio p : vinteInCasa) {
+            System.out.println(" - " + p.getSquadraDiCasa() + " vs " + p.getSquadraOspite() + " (Vincitore: " + p.getSquadraVincente() + ")");
+        }
+
+        // Richiamo getPartiteVinteInTrasferta
+        List<PartitaDiCalcio> vinteInTrasferta = em.createNamedQuery("getPartiteVinteInTrasferta", PartitaDiCalcio.class)
+                .setParameter("citta", "Milano")
+                .getResultList();
+
+        System.out.println("Partite vinte in trasferta a Milano:");
+        for (PartitaDiCalcio p : vinteInTrasferta) {
+            System.out.println(" - " + p.getSquadraDiCasa() + " vs " + p.getSquadraOspite() + " (Vincitore: " + p.getSquadraVincente() + ")");
+        }
+
+
         // chiusura EntityManager e EntityManagerFactory
         em.close();
         emf.close();
