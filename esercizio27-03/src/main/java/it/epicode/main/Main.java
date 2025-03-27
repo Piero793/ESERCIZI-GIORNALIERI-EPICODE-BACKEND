@@ -1,9 +1,6 @@
 package it.epicode.main;
 
-import it.epicode.classi.Concerto;
-import it.epicode.classi.GaraDiAtletica;
-import it.epicode.classi.PartitaDiCalcio;
-import it.epicode.classi.Persona;
+import it.epicode.classi.*;
 import it.epicode.classi_DAO.EventoDao;
 import it.epicode.classi_DAO.LocationDAO;
 import it.epicode.classi_DAO.PartecipazioneDAO;
@@ -65,8 +62,14 @@ public class Main {
 
         // istanza di una location usando il builder di lombok
         it.epicode.classi.Location location = it.epicode.classi.Location.builder()
-                .citta("Roma")
+                .citta("Milano")
                 .nome("Stadio")
+                .build();
+
+        // istanza di una partecipazione usando il builder di lombok
+        Partecipazione partecipazione = it.epicode.classi.Partecipazione.builder()
+                .persona(persona)
+                .evento(partitaDiCalcio)
                 .build();
 
         // avvio transazione
@@ -84,6 +87,8 @@ public class Main {
         eventoDao.save(concerto);
         // salvataggio di una location
         locationDao.save(location);
+        // salvataggio di una partecipazione
+        partecipazioneDao.save(partecipazione);
 
         em.getTransaction().commit();
 
