@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/blogPosts")
 public class BlogController {
     @Autowired
     private BlogService blogService;
@@ -19,7 +20,7 @@ public class BlogController {
 
     @GetMapping("/blogPosts/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Blog findById(Long id) {
+    public Blog findById(@PathVariable Long id) {
         return blogService.findById(id);
     }
 
@@ -31,13 +32,13 @@ public class BlogController {
 
     @PutMapping("/blogPosts/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Blog update(Long id, Blog blog) {
+    public Blog update(@PathVariable Long id,@RequestBody Blog blog) {
         return blogService.update(id, blog);
     }
 
     @DeleteMapping("/blogPosts/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(Long id) {
+    public void delete(@PathVariable Long id) {
         blogService.delete(id);
     }
 }

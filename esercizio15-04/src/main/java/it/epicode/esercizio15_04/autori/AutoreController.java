@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/authors")
 public class AutoreController {
     @Autowired
     private AutoreService autoriService;
@@ -19,25 +20,25 @@ public class AutoreController {
 
     @GetMapping("/authors/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Autore findById(Long id) {
+    public Autore findById(@PathVariable Long id) {
         return autoriService.findById(id);
     }
 
     @PostMapping("/authors")
     @ResponseStatus(HttpStatus.CREATED)
-    public Autore create(Autore autore) {
+    public Autore create(@RequestBody Autore autore) {
         return autoriService.create(autore);
     }
 
     @PutMapping("/authors/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Autore update(Long id, Autore autore) {
+    public Autore update(@PathVariable Long id,@RequestBody Autore autore) {
         return autoriService.update(id, autore);
     }
 
     @DeleteMapping("/authors/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(Long id) {
+    public void delete(@PathVariable Long id) {
         autoriService.delete(id);
     }
 }
