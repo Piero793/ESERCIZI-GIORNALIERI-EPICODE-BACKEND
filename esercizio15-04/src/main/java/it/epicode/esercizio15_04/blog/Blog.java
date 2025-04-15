@@ -14,8 +14,12 @@ public class Blog {
 @Id
 @GeneratedValue(strategy = GenerationType.SEQUENCE)
 private Long id;
+@Column
 private String categoria;
+@Column
 private String titolo;
+@Column
 private String contenuto;
+@Column
 private int tempoDiLettura;
 }

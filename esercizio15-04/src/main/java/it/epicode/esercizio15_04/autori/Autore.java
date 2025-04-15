@@ -14,8 +14,12 @@ public class Autore {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    @Column
     private String nome;
+    @Column
     private String cognome;
+    @Column
     private String email;
+    @Column
     private String dataDiNascita;
 }
