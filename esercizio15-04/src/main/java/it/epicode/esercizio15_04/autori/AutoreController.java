@@ -12,31 +12,31 @@ public class AutoreController {
     @Autowired
     private AutoreService autoriService;
 
-    @GetMapping("/authors")
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<Autore> findAll() {
         return autoriService.findAll();
     }
 
-    @GetMapping("/authors/{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Autore findById(@PathVariable Long id) {
         return autoriService.findById(id);
     }
 
-    @PostMapping("/authors")
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Autore create(@RequestBody Autore autore) {
         return autoriService.create(autore);
     }
 
-    @PutMapping("/authors/{id}")
+    @PutMapping("/update/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Autore update(@PathVariable Long id,@RequestBody Autore autore) {
         return autoriService.update(id, autore);
     }
 
-    @DeleteMapping("/authors/{id}")
+    @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         autoriService.delete(id);

@@ -12,31 +12,31 @@ public class BlogController {
     @Autowired
     private BlogService blogService;
 
-    @GetMapping("/blogPosts")
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<Blog> findAll() {
         return blogService.findAll();
     }
 
-    @GetMapping("/blogPosts/{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Blog findById(@PathVariable Long id) {
         return blogService.findById(id);
     }
 
-    @PostMapping("/blogPosts")
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Blog create(@RequestBody Blog blog) {
         return blogService.create(blog);
     }
 
-    @PutMapping("/blogPosts/{id}")
+    @PutMapping("/update/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Blog update(@PathVariable Long id,@RequestBody Blog blog) {
         return blogService.update(id, blog);
     }
 
-    @DeleteMapping("/blogPosts/{id}")
+    @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         blogService.delete(id);
