@@ -1,6 +1,9 @@
 package it.epicode.esercizio15_04.autori;
 
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +17,8 @@ public class AutoreController {
 
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
-    public List<Autore> findAll() {
-        return autoriService.findAll();
+    public Page<Autore> findAll(@ParameterObject Pageable pageable) {
+        return autoriService.findAll(pageable);
     }
 
     @GetMapping("/{id}")

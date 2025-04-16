@@ -1,9 +1,13 @@
 package it.epicode.esercizio15_04.autori;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import it.epicode.esercizio15_04.blog.Blog;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -22,4 +26,8 @@ public class Autore {
     private String email;
     @Column
     private String dataDiNascita;
+
+    @OneToMany(mappedBy = "autore")
+    @JsonIgnore
+    private List<Blog> blog;
 }

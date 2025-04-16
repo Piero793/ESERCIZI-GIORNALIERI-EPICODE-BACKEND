@@ -1,5 +1,7 @@
 package it.epicode.esercizio15_04.blog;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import it.epicode.esercizio15_04.autori.Autore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,4 +24,7 @@ private String titolo;
 private String contenuto;
 @Column
 private int tempoDiLettura;
+@ManyToOne
+@JsonIgnore
+private Autore autore;
 }
