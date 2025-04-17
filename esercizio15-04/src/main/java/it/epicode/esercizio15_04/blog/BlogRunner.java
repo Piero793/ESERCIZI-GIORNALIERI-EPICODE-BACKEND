@@ -19,7 +19,7 @@ public class BlogRunner implements CommandLineRunner {
             Blog blog = new Blog();
             blog.setCategoria(fakerService.faker().book().genre());
             blog.setTitolo(fakerService.faker().book().title());
-            blog.setContenuto(fakerService.faker().lorem().paragraph());
+            blog.setContenuto(fakerService.faker().lorem().word());
             blog.setTempoDiLettura(fakerService.faker().number().numberBetween(1, 10));
             blogService.create(blog);
         }

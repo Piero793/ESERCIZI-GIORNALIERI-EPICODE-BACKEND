@@ -1,5 +1,6 @@
 package it.epicode.esercizio15_04.blog;
 
+import jakarta.validation.Valid;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,7 +33,7 @@ public class BlogController {
 
     // Crea un nuovo blog
     @PostMapping("/create")
-    public ResponseEntity<Blog> create(@RequestBody BlogRequest blogRequest) {
+    public ResponseEntity<Blog> create(@RequestBody @Valid BlogRequest blogRequest) {
         Blog blog = blogService.create(blogRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(blog);
     }
