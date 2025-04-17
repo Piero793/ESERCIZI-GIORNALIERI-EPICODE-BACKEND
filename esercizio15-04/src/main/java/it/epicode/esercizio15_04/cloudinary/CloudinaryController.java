@@ -36,14 +36,8 @@ public class CloudinaryController {
             // che può essere memorizzata in un database
             String url = result.get("secure_url").toString();
             System.out.println(url);
-
-
-
-            System.out.println(url);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
-
 }

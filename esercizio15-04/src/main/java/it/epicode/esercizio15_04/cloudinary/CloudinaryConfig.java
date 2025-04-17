@@ -25,5 +25,4 @@ public class CloudinaryConfig {
         config.put("api_secret",apiSecret); // Sostituisci con la tua API secret
         return new Cloudinary(config);
     }
-
 }
